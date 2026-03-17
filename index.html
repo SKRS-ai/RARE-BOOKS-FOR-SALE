@@ -3,47 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RARE BOOKS FOR SALE | The Vault</title>
-    <link rel="stylesheet" href="styles/velvet-core.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <title>RARE BOOKS FOR SALE | Official Vault</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #bf953f;
+            --bright-gold: #fcf6ba;
+            --velvet: #3e0a0a;
+            --obsidian: #050505;
+        }
+
+        /* Essential Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: var(--obsidian); 
+            color: #eee; 
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* The Velvet Background Texture */
+        .velvet-canvas {
+            background: radial-gradient(circle at center, #2a0505 0%, #050505 100%);
+            min-height: 100vh;
+        }
+
+        /* Prestige Navigation Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 90px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, transparent 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(191, 149, 63, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .brand-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px rgba(191, 149, 63, 0.5);
+        }
+
+        .nav-links a {
+            color: var(--bright-gold);
+            text-decoration: none;
+            margin-left: 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { text-shadow: 0 0 15px var(--bright-gold); }
+
+        /* Full-Page Gallery Sections */
+        .artifact-gallery { margin-top: 90px; }
+
+        .artifact-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 40px;
+            border-bottom: 2px solid #1a1a1a;
+        }
+
+        .artifact-frame {
+            position: relative;
+            height: 85vh;
+            box-shadow: 0 30px 60px rgba(0,0,0,1);
+            border: 8px solid #111;
+            outline: 1px solid var(--gold);
+            background: #000;
+            transition: transform 0.5s ease;
+        }
+
+        .artifact-frame:hover { transform: scale(1.01); }
+
+        .artifact-frame img {
+            height: 100%;
+            display: block;
+        }
+
+        /* Exclusive Buy Button layered on bottom-right near price */
+        .acquisition-btn {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(45deg, #bf953f, #fcf6ba, #bf953f);
+            color: #000;
+            border: none;
+            padding: 18px 45px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: 0.4s;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+        }
+
+        .acquisition-btn:hover {
+            letter-spacing: 2px;
+            box-shadow: 0 0 40px var(--bright-gold);
+        }
+
+        /* Cart Indicator */
+        .satchel-count {
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 5px 12px;
+            border-radius: 50px;
+            margin-left: 10px;
+        }
+    </style>
 </head>
-<body class="velvet-bg">
+<body class="velvet-canvas">
 
-    <nav class="prestige-nav">
-        <div class="logo">RARE BOOKS FOR SALE</div>
-        <div class="nav-links">
+    <header>
+        <div class="brand-logo">RARE BOOKS FOR SALE</div>
+        <nav class="nav-links">
             <a href="#">The Vault</a>
-            <a href="#">The Archive</a>
-            <a href="#">My Library</a>
-            <button class="cart-btn">The Satchel (0)</button>
-        </div>
-        <div class="auth-portal">
-            <a href="#">Member Log-In / Registration</a>
-        </div>
-    </nav>
+            <a href="register.html">Membership</a>
+            <a href="#">The Satchel <span class="satchel-count" id="cart-count">0</span></a>
+        </nav>
+    </header>
 
-    <main class="vault-container">
+    <main class="artifact-gallery">
         
-        <section class="artifact-slide" id="artifact-001">
-            <div class="image-wrapper">
-                <img src="assets/artifacts/Gemini_Generated_Image_1ptmi51ptmi51ptm.jpg" alt="Alice's Adventures in Wonderland">
-                <button class="buy-overlay" onclick="addToCart('Alice', 14.99)">
-                    Acquire Digital Book — $14.99
-                </button>
-            </div>
-        </section>
-
-        <section class="artifact-slide" id="artifact-014">
-            <div class="image-wrapper">
-                <img src="assets/artifacts/artifact-014.png.jpg" alt="De humani corporis fabrica">
-                <button class="buy-overlay" onclick="addToCart('Vesalius', 39.99)">
+        <section class="artifact-section">
+            <div class="artifact-frame">
+                <img src="artifact-014.png.jpg" alt="De humani corporis fabrica">
+                <button class="acquisition-btn" onclick="addArtifact('De humani corporis fabrica', 39.99)">
                     Acquire Digital Book — $39.99
                 </button>
             </div>
         </section>
 
-        </main>
+        <section class="artifact-section">
+            <div class="artifact-frame">
+                <img src="artifact-018.png.jpg" alt="Astronomia nova">
+                <button class="acquisition-btn" onclick="addArtifact('Astronomia nova', 34.99)">
+                    Acquire Digital Book — $34.99
+                </button>
+            </div>
+        </section>
 
-    <script src="scripts/vault-logic.js"></script>
+        <section class="artifact-section">
+            <div class="artifact-frame">
+                <img src="Gemini_Generated_Image_1ptmi51ptmi51ptm.jpg" alt="Alice in Wonderland">
+                <button class="acquisition-btn" onclick="addArtifact('Alice in Wonderland', 14.99)">
+                    Acquire Digital Book — $14.99
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        let count = 0;
+        function addArtifact(name, price) {
+            count++;
+            document.getElementById('cart-count').innerText = count;
+            alert(`"${name}" has been secured in your satchel for $${price}.`);
+        }
+    </script>
 </body>
 </html>
