@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RARE BOOKS FOR SALE | My Private Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #bf953f;
+            --deep-wood: #1a0f0a;
+            --shelf-shadow: rgba(0,0,0,0.8);
+        }
+
+        body {
+            margin: 0;
+            background-color: #050505;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Library Header */
+        header {
+            padding: 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--gold);
+            background: linear-gradient(to bottom, #111, #050505);
+        }
+
+        .library-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+
+        /* The Bookshelf Layout */
+        .study-room {
+            max-width: 1200px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 60px;
+            padding: 20px;
+        }
+
+        .book-slot {
+            position: relative;
+            perspective: 1000px;
+            text-align: center;
+        }
+
+        /* The Shelf Styling */
+        .shelf-base {
+            height: 15px;
+            background: var(--deep-wood);
+            border-top: 2px solid var(--gold);
+            margin-top: 10px;
+            box-shadow: 0 10px 20px var(--shelf-shadow);
+        }
+
+        .book-spine {
+            width: 180px;
+            height: 260px;
+            margin: 0 auto;
+            background: #222;
+            border: 1px solid #444;
+            box-shadow: -10px 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .book-spine img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(0.3) contrast(1.1);
+        }
+
+        .book-spine:hover {
+            transform: rotateY(-20deg) translateZ(20px);
+            box-shadow: -20px 20px 40px rgba(0,0,0,0.8), 0 0 20px var(--gold);
+        }
+
+        .book-label {
+            margin-top: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+        }
+
+        .nav-back {
+            display: inline-block;
+            margin-top: 20px;
+            color: #888;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .nav-back:hover { color: var(--gold); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="library-title">The Private Library</h1>
+        <p>Your acquired digital treasures are archived below.</p>
+        <a href="index.html" class="nav-back">← Return to the Main Vault</a>
+    </header>
+
+    <main class="study-room">
+        
+        <div class="book-slot">
+            <div class="book-spine" onclick="alert('Opening Digital Archive: Alice in Wonderland...')">
+                <img src="Gemini_Generated_Image_1ptmi51ptmi51ptm.jpg" alt="Alice">
+            </div>
+            <div class="shelf-base"></div>
+            <p class="book-label">Adventures in Wonderland</p>
+        </div>
+
+        <div class="book-slot">
+            <div class="book-spine" onclick="alert('Opening Digital Archive: Vesalius...')">
+                <img src="artifact-014.png.jpg" alt="Vesalius">
+            </div>
+            <div class="shelf-base"></div>
+            <p class="book-label">De humani corporis fabrica</p>
+        </div>
+
+        <div class="book-slot">
+            <div class="book-spine" onclick="alert('Opening Digital Archive: Kepler...')">
+                <img src="artifact-018.png.jpg" alt="Kepler">
+            </div>
+            <div class="shelf-base"></div>
+            <p class="book-label">Astronomia Nova</p>
+        </div>
+
+    </main>
+
+</body>
+</html>
