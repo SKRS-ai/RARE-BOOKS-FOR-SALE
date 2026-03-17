@@ -12,6 +12,61 @@
             --velvet: #3e0a0a;
             --obsidian: #050505;
         }
+        .launch-banner {
+    background: linear-gradient(90deg, #1a1a1a 0%, #3e0a0a 50%, #1a1a1a 100%);
+    border-bottom: 1px solid var(--gold);
+    color: var(--bright-gold);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1100;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* The Animated Glimmer Light */
+.glimmer {
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(252, 246, 186, 0.4), transparent);
+    transform: skewX(-20deg);
+    animation: sweep 6s infinite;
+}
+
+@keyframes sweep {
+    0% { left: -150%; }
+    20% { left: 150%; }
+    100% { left: 150%; }
+}
+
+.reserve-btn {
+    background: var(--gold);
+    color: #000;
+    padding: 2px 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.7rem;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+.reserve-btn:hover {
+    background: var(--bright-gold);
+    box-shadow: 0 0 10px var(--bright-gold);
+}
 /* COA Overlay Styles */
 .coa-overlay {
     position: fixed;
@@ -230,6 +285,15 @@
         }
     </style>
 </head>
+    
+    <div class="launch-banner">
+    <div class="banner-content">
+        <span class="glimmer"></span>
+        <p><strong>Upcoming Acquisition:</strong> The Gutenberg Bible (Digital Master Scan) — Arriving in <span id="countdown">48:00:00</span></p>
+        <a href="register.html" class="reserve-btn">Get Early Access</a>
+    </div>
+        
+</div>
 <body class="velvet-canvas">
 
     <header>
@@ -403,6 +467,20 @@
     </main>
 
     <script>
+        // Simple 48-hour countdown simulator
+let time = 172800; // 48 hours in seconds
+const display = document.getElementById('countdown');
+
+setInterval(() => {
+    let hours = Math.floor(time / 3600);
+    let minutes = Math.floor((time % 3600) / 60);
+    let seconds = time % 60;
+
+    display.innerText = 
+        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+    if (time > 0) time--;
+}, 1000);
         let count = 0;
         function addArtifact(name, price) {
     // 1. Update Cart Count
