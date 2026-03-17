@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RARE BOOKS FOR SALE | Curator's Desk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #bf953f;
+            --bright-gold: #fcf6ba;
+            --obsidian: #080808;
+            --panel: #121212;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--obsidian);
+            color: #ddd;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Dashboard Layout */
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            background: #000;
+            border-right: 1px solid var(--gold);
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .side-link {
+            color: #888;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            padding: 10px;
+            border-left: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .side-link:hover, .side-link.active {
+            color: var(--bright-gold);
+            border-left: 2px solid var(--gold);
+            background: rgba(191, 149, 63, 0.05);
+        }
+
+        /* Main Content Area */
+        .main-desk {
+            padding: 60px;
+            background: radial-gradient(circle at top right, #1a0a0a 0%, #080808 100%);
+        }
+
+        .desk-header {
+            margin-bottom: 50px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 20px;
+        }
+
+        .desk-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .desk-card {
+            background: var(--panel);
+            border: 1px solid #222;
+            padding: 30px;
+            position: relative;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .desk-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.7rem;
+            color: #00ff00;
+            border: 1px solid #00ff00;
+            padding: 2px 8px;
+            text-transform: uppercase;
+        }
+
+        .card-data {
+            font-size: 0.9rem;
+            color: #bbb;
+            line-height: 1.6;
+        }
+
+        .edit-btn {
+            margin-top: 20px;
+            background: none;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 15px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .edit-btn:hover {
+            background: var(--gold);
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h2>The Collector's Desk</h2>
+            <a href="#" class="side-link active">Overview</a>
+            <a href="library.html" class="side-link">Private Library</a>
+            <a href="#" class="side-link">Vault Ledger (History)</a>
+            <a href="#" class="side-link">Security Settings</a>
+            <a href="index.html" class="side-link" style="margin-top:auto;">Log Out</a>
+        </aside>
+
+        <main class="main-desk">
+            <header class="desk-header">
+                <h1>Welcome, Collector</h1>
+                <p>Status: <span style="color: var(--gold);">Prestigious Member</span></p>
+            </header>
+
+            <div class="info-grid">
+                <div class="desk-card">
+                    <span class="status-badge">Verified</span>
+                    <h3>Member Identity</h3>
+                    <div class="card-data">
+                        <p><strong>Name:</strong> [Member Name]</p>
+                        <p><strong>Email:</strong> collector@archive.com</p>
+                        <p><strong>Member Since:</strong> March 2026</p>
+                    </div>
+                    <button class="edit-btn">Update Profile</button>
+                </div>
+
+                <div class="desk-card">
+                    <span class="status-badge" style="color: var(--gold); border-color: var(--gold);">Encrypted</span>
+                    <h3>Secure Payment Vault</h3>
+                    <div class="card-data">
+                        <p><strong>Primary Card:</strong> **** **** **** 3217</p>
+                        <p><strong>Card Type:</strong> Black Card / Prestige</p>
+                        <p><strong>Auto-Acquire:</strong> Enabled</p>
+                    </div>
+                    <button class="edit-btn">Manage Vault</button>
+                </div>
+
+                <div class="desk-card" style="grid-column: span 2;">
+                    <h3>Collection Summary</h3>
+                    <div class="card-data" style="display: flex; justify-content: space-around; text-align: center;">
+                        <div>
+                            <p style="font-size: 2rem; color: var(--gold);">3</p>
+                            <p>Artifacts Held</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 2rem; color: var(--gold);">$94.97</p>
+                            <p>Vault Value</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 2rem; color: var(--gold);">Level 1</p>
+                            <p>Curator Access</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
